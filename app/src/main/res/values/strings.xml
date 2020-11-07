@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">SuperApp</string>
+  <string name="main_screen_text">This is main Screen</string>
+  <string name="service">Service</string>
+</resources>
