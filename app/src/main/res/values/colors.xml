@@ -4,7 +4,7 @@
   <color name="colorPrimaryDark">#00574B</color>
   <color name="colorAccent">#D81B60</color>
   <color name="progress_background">#33FFFFFF</color>
-  <color name="colorPrimaryTransparent">#80008577</color>
+  <color name="colorPrimaryTransparent50">#80008577</color>
 
   <color name="color_main_background">#0DEAEAEA</color>
   <color name="color_progress_background">#33FFFFFF</color>

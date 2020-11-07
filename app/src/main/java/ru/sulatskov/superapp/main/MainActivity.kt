@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
 import ru.sulatskov.superapp.main.general.GeneralFragment
+import ru.sulatskov.superapp.main.service.ServiceFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +28,15 @@ class MainActivity : AppCompatActivity() {
       R.id.main_fragment_container,
       generalFragment
     ).addToBackStack(generalFragment.tag)
+      .commit()
+  }
+
+  fun openServiceScreen() {
+    val serviceFragment = ServiceFragment()
+    supportFragmentManager.beginTransaction().replace(
+      R.id.main_fragment_container,
+      serviceFragment
+    ).addToBackStack(serviceFragment.tag)
       .commit()
   }
 }
