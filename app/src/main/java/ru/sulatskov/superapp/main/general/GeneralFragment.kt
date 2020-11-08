@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.sulatskov.superapp.R
+import ru.sulatskov.superapp.base.view.BaseFragment
 import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
 import ru.sulatskov.superapp.main.MainActivity
 
-class GeneralFragment : Fragment() {
+class GeneralFragment : BaseFragment() {
+
     companion object {
         const val TAG = "GeneralFragment"
     }

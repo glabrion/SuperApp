@@ -10,10 +10,10 @@
         android:gravity="center"
         android:layout_marginTop="16dp"
         style="@style/TextNormBlack"
-        android:text="@string/enter_the_number_of_push_notifications" />
+        android:text="@string/enter_the_number_notifications" />
 
     <EditText
-        android:id="@+id/push_count"
+        android:id="@+id/notification_count"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/shape_corner_bg"
