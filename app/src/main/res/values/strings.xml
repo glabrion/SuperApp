@@ -4,4 +4,7 @@
   <string name="service">Service</string>
   <string name="start_service">Start service</string>
   <string name="stop_service">Stop service</string>
+    <string name="enter_the_number_of_push_notifications">Enter the number of push notifications</string>
+    <string name="insert_number">Insert the number</string>
+    <string name="service_finished">Service finished its work</string>
 </resources>

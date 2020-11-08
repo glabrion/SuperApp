@@ -10,6 +10,9 @@ import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
 import ru.sulatskov.superapp.main.MainActivity
 
 class GeneralFragment : Fragment() {
+    companion object {
+        const val TAG = "GeneralFragment"
+    }
 
     private var fragmentBlankBinding: FragmentGeneralBinding? = null
 
