@@ -17,6 +17,4 @@ class FragmentModule {
     fun provideGeneralPresenter(): GeneralPresenter {
         return GeneralPresenter()
     }
-
-
 }

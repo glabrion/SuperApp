@@ -79,10 +79,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     }
 
     override fun injectDependency() {
-        val aboutComponent = DaggerFragmentComponent.builder()
-            .build()
-
-        aboutComponent.inject(this)
+        DaggerFragmentComponent.builder().build().inject(this)
     }
 
     override fun attachPresenter() {
