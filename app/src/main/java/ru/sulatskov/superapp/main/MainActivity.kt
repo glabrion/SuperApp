@@ -2,12 +2,11 @@ package ru.sulatskov.superapp.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
-import ru.sulatskov.superapp.main.general.GeneralFragment
-import ru.sulatskov.superapp.main.service.ServiceFragment
+import ru.sulatskov.superapp.main.screens.general.GeneralFragment
+import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 
 class MainActivity : AppCompatActivity() {
 

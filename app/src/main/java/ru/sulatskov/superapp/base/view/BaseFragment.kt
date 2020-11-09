@@ -1,11 +1,14 @@
 package ru.sulatskov.superapp.base.view
 
 import android.app.Activity
+import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 
-open class BaseFragment : Fragment(){
+abstract class BaseFragment : Fragment(){
 
     fun hideKeyboard(activity: Activity?) {
         val imm: InputMethodManager =
@@ -16,5 +19,20 @@ open class BaseFragment : Fragment(){
         }
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        injectDependency()
+        attachPresenter()
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    abstract fun injectDependency()
+
+    abstract fun attachPresenter()
+
 
 }

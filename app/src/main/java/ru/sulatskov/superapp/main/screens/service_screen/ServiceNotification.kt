@@ -1,4 +1,4 @@
-package ru.sulatskov.superapp.main.service
+package ru.sulatskov.superapp.main.screens.service_screen
 
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -8,7 +8,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import ru.sulatskov.superapp.R
-import ru.sulatskov.superapp.main.service.ServiceFragment.Companion.BROADCAST_ACTION
+import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment.Companion.BROADCAST_ACTION
 import java.text.DateFormat
 import java.util.*
 
@@ -30,7 +30,7 @@ class ServiceNotification : Service() {
         val countNotification = intent?.getIntExtra(COUNT_NOTIFICATION, 0)
         pendingIntent = intent?.getParcelableExtra(PARAM_PENDING_INTENT)
         countNotification?.let {
-            execute(it)
+            Thread(Runnable { execute(it) }).start()
         }
 
         return START_STICKY
@@ -89,18 +89,18 @@ class ServiceNotification : Service() {
 
     }
 
-    inner class NotificationThread: Thread() {
+    inner class NotificationThread : Thread() {
         override fun run() {
             super.run()
             isStopped = false
-            while (!isStopped){
+            while (!isStopped) {
                 sleep(5000)
                 sendNotification()
                 Log.d(LOG_TAG, "sendNotification")
             }
         }
 
-        fun stopThread(){
+        fun stopThread() {
             isStopped = true
         }
     }
