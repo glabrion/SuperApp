@@ -8,7 +8,7 @@ import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
 import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
-import ru.sulatskov.superapp.di.component.DaggerFragmentComponent
+import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.MainActivity
 import ru.sulatskov.superapp.main.screens.service_screen.ServicePresenter
 import javax.inject.Inject
@@ -39,7 +39,7 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
     }
 
     override fun injectDependency() {
-        DaggerFragmentComponent.builder().build().inject(this)
+        DaggerMainComponent.builder().build().inject(this)
     }
 
     override fun attachPresenter() {

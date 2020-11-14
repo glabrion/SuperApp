@@ -10,10 +10,10 @@ import com.google.android.material.snackbar.Snackbar
 import ru.sulatskov.superapp.base.view.BaseFragment
 
 
-fun BaseFragment.toastInCenter(msg: String) {
+fun BaseFragment.toast(msg: String) {
     activity?.apply {
         val toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT)
-        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.setGravity(Gravity.BOTTOM, 0, 0)
         toast.show()
     }
 }

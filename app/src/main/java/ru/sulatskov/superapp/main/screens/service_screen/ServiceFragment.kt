@@ -2,8 +2,6 @@ package ru.sulatskov.superapp.main.screens.service_screen
 
 import android.app.Activity
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
@@ -14,16 +12,12 @@ import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
 import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.common.snackbar
-import ru.sulatskov.superapp.common.toastInCenter
 import ru.sulatskov.superapp.databinding.FragmentServiceBinding
-import ru.sulatskov.superapp.di.component.DaggerFragmentComponent
+import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.MainActivity
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.COUNT_NOTIFICATION
-import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.MESSAGE_NOTIFICATION
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.PARAM_PENDING_INTENT
-import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.PARAM_STATUS
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.STATUS_FINISH
-import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.STATUS_IN_PROGRESS
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.STATUS_START
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.TASK_CODE
 import javax.inject.Inject
@@ -42,18 +36,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     private var fragmentBlankBinding: FragmentServiceBinding? = null
     private var mainActivity: Activity? = null
     private val intentFilter = IntentFilter(BROADCAST_ACTION)
-    private val broadcastReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context?, intent: Intent?) {
-            val status = intent?.getIntExtra(PARAM_STATUS, 0)
-            val message = intent?.getStringExtra(MESSAGE_NOTIFICATION)
-
-            if (status == STATUS_IN_PROGRESS) {
-                message?.let {
-                    toastInCenter(it)
-                }
-            }
-        }
-    }
+    private val toastReviver = ToastReviver()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,11 +58,11 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        activity?.registerReceiver(broadcastReceiver, intentFilter)
+        activity?.registerReceiver(toastReviver, intentFilter)
     }
 
     override fun injectDependency() {
-        DaggerFragmentComponent.builder().build().inject(this)
+        DaggerMainComponent.builder().build().inject(this)
     }
 
     override fun attachPresenter() {
@@ -102,7 +85,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
 
     override fun onDestroyView() {
         fragmentBlankBinding = null
-        mainActivity?.unregisterReceiver(broadcastReceiver)
+        mainActivity?.unregisterReceiver(toastReviver)
         super.onDestroyView()
     }
 
