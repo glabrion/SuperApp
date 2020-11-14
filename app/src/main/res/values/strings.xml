@@ -4,7 +4,7 @@
   <string name="service">Service</string>
   <string name="start_service">Start service</string>
   <string name="stop_service">Stop service</string>
-    <string name="enter_the_number_notifications">Enter the number of notifications</string>
+    <string name="enter_the_number_notifications">Enter the count of notifications</string>
     <string name="insert_number">Insert the number</string>
     <string name="service_finished">Notifications have been shown</string>
   <string name="service_work">Service work</string>
