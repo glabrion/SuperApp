@@ -1,17 +1,18 @@
-package ru.sulatskov.superapp.main.screens.general
+package ru.sulatskov.hiltexample.main.screens.general
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.sulatskov.superapp.R
-import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
-import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
-import ru.sulatskov.superapp.di.component.DaggerMainComponent
-import ru.sulatskov.superapp.main.MainActivity
+import android.widget.Toast
+import dagger.hilt.android.AndroidEntryPoint
+import ru.sulatskov.hiltexample.R
+import ru.sulatskov.hiltexample.base.view.BaseFragment
+import ru.sulatskov.hiltexample.base.view.BaseViewInterface
+import ru.sulatskov.hiltexample.databinding.FragmentGeneralBinding
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class GeneralFragment : BaseFragment(), BaseViewInterface {
 
     companion object {
@@ -30,27 +31,21 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         super.onCreateView(inflater, container, savedInstanceState)
         val binding = FragmentGeneralBinding.inflate(inflater, container, false)
         fragmentGeneralBinding = binding
-        binding.description.text = getString(R.string.main_screen_text)
-        binding.service.setOnClickListener {
-            presenter.onServiceButtonClick()
-        }
         return binding.root
     }
 
-    override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        fragmentGeneralBinding?.getToast?.setOnClickListener {
+            presenter.onGetToastClick()
+        }
     }
 
     override fun attachPresenter() {
         presenter.attach(this)
     }
 
-    override fun onDestroyView() {
-        fragmentGeneralBinding = null
-        super.onDestroyView()
+    fun showToast() {
+        Toast.makeText(context, getString(R.string.hilt_toast), Toast.LENGTH_SHORT).show()
     }
 
-    fun openServiceScreen() {
-        (activity as MainActivity).openServiceScreen()
-    }
 }

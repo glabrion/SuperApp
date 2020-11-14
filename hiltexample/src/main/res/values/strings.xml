@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HiltExample</string>
+    <string name="get_toast">Get Toast</string>
+    <string name="hilt_toast">Hilt for girls</string>
+    <string name="this_is_main_screen">This is main Screen</string>
+</resources>

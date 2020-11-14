@@ -33,7 +33,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     lateinit var presenter: ServicePresenter
 
     private var binding: FragmentServiceBinding? = null
-    private var fragmentBlankBinding: FragmentServiceBinding? = null
+    private var fragmentServiceBinding: FragmentServiceBinding? = null
     private var mainActivity: Activity? = null
     private val intentFilter = IntentFilter(BROADCAST_ACTION)
     private val toastReviver = ToastReviver()
@@ -45,7 +45,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
         super.onCreateView(inflater, container, savedInstanceState)
         mainActivity = (activity as MainActivity)
         binding = FragmentServiceBinding.inflate(inflater, container, false)
-        fragmentBlankBinding = binding
+        fragmentServiceBinding = binding
         binding?.startService?.setOnClickListener {
             presenter.onStartServiceClick()
         }
@@ -84,7 +84,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     }
 
     override fun onDestroyView() {
-        fragmentBlankBinding = null
+        fragmentServiceBinding = null
         mainActivity?.unregisterReceiver(toastReviver)
         super.onDestroyView()
     }
