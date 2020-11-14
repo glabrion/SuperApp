@@ -7,4 +7,8 @@ class GeneralPresenter: BasePresenter<GeneralFragment>() {
         view?.openServiceScreen()
     }
 
+    fun onContentProviderButtonClick() {
+        view?.openContentProviderScreen()
+    }
+
 }

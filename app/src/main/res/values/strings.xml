@@ -9,4 +9,7 @@
     <string name="service_finished">Notifications have been shown</string>
   <string name="service_work">Service work</string>
   <string name="serviceNotification_still_works">Your ServiceNotification still works</string>
+    <string name="content_provider">Content provider</string>
+    <string name="not_permission">Requires set permissions</string>
+  <string name="not_contact">List of contacts is empty</string>
 </resources>

@@ -2,6 +2,7 @@ package ru.sulatskov.superapp.di.module
 
 import dagger.Module
 import dagger.Provides
+import ru.sulatskov.superapp.main.screens.contact.ContactPresenter
 import ru.sulatskov.superapp.main.screens.general.GeneralPresenter
 import ru.sulatskov.superapp.main.screens.service_screen.ServicePresenter
 
@@ -17,4 +18,10 @@ class FragmentModule {
     fun provideGeneralPresenter(): GeneralPresenter {
         return GeneralPresenter()
     }
+
+    @Provides
+    fun provideContactPresenter(): ContactPresenter {
+        return ContactPresenter()
+    }
+
 }

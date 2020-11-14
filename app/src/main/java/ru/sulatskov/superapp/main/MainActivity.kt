@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
+import ru.sulatskov.superapp.main.screens.contact.ContactFragment
 import ru.sulatskov.superapp.main.screens.general.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 
@@ -40,9 +41,28 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    fun openContactScreen() {
+        val contactFragment = ContactFragment()
+        supportFragmentManager.beginTransaction().replace(
+            R.id.main_fragment_container,
+            contactFragment, ContactFragment.TAG
+        ).addToBackStack(ContactFragment.TAG)
+            .commit()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val fragment = supportFragmentManager.findFragmentByTag(ServiceFragment.TAG)
         fragment?.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        val fragment = supportFragmentManager.findFragmentByTag(ContactFragment.TAG)
+        fragment?.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 }

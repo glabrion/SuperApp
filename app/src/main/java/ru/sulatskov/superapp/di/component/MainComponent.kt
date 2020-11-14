@@ -4,6 +4,7 @@ import dagger.Component
 import ru.sulatskov.superapp.BaseApp
 import ru.sulatskov.superapp.di.module.ApplicationModule
 import ru.sulatskov.superapp.di.module.FragmentModule
+import ru.sulatskov.superapp.main.screens.contact.ContactFragment
 import ru.sulatskov.superapp.main.screens.general.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 
@@ -13,7 +14,7 @@ interface MainComponent {
     fun inject(application: BaseApp)
 
     fun inject(serviceFragment: ServiceFragment)
-
     fun inject(generalFragment: GeneralFragment)
+    fun inject(contactFragment: ContactFragment)
 
 }

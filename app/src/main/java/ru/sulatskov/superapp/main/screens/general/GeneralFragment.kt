@@ -34,6 +34,9 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         binding.service.setOnClickListener {
             presenter.onServiceButtonClick()
         }
+        binding.contentProvider.setOnClickListener {
+            presenter.onContentProviderButtonClick()
+        }
         return binding.root
     }
 
@@ -51,6 +54,10 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
     }
 
     fun openServiceScreen() {
-        (activity as MainActivity).openServiceScreen()
+        (activity as? MainActivity)?.openServiceScreen()
+    }
+
+    fun openContentProviderScreen() {
+        (activity as? MainActivity)?.openContactScreen()
     }
 }
