@@ -117,7 +117,9 @@ class ContactFragment : BaseFragment(), BaseViewInterface {
             while (cursor.moveToNext()) {
                 val contact =
                     cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME_PRIMARY))
-                contacts.add(contact)
+                contact?.let {
+                    contacts.add(it)
+                }
             }
         }
         return contacts
