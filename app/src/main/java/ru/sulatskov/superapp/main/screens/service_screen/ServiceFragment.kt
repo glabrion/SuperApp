@@ -32,7 +32,6 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     @Inject
     lateinit var presenter: ServicePresenter
 
-    private var binding: FragmentServiceBinding? = null
     private var fragmentServiceBinding: FragmentServiceBinding? = null
     private var mainActivity: Activity? = null
     private val intentFilter = IntentFilter(BROADCAST_ACTION)
@@ -42,18 +41,17 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         mainActivity = (activity as MainActivity)
-        binding = FragmentServiceBinding.inflate(inflater, container, false)
-        fragmentServiceBinding = binding
-        binding?.startService?.setOnClickListener {
+        fragmentServiceBinding = FragmentServiceBinding.inflate(inflater, container, false)
+        fragmentServiceBinding?.startService?.setOnClickListener {
             presenter.onStartServiceClick()
         }
 
-        binding?.stopService?.setOnClickListener {
+        fragmentServiceBinding?.stopService?.setOnClickListener {
             presenter.onStopServiceClick()
         }
-        return binding?.root
+        super.onCreateView(inflater, container, savedInstanceState)
+        return fragmentServiceBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -67,6 +65,12 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
 
     override fun attachPresenter() {
         presenter.attach(this)
+    }
+
+    override fun initToolbar() {
+        fragmentServiceBinding?.back?.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -109,7 +113,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
 
     fun startService() {
         try {
-            val countNotification: Int = binding?.notificationCount?.text.toString().toInt()
+            val countNotification: Int = fragmentServiceBinding?.notificationCount?.text.toString().toInt()
             val pendingIntent: PendingIntent? =
                 mainActivity?.createPendingResult(TASK_CODE, Intent(), 0)
             if (countNotification > 0) {
@@ -122,7 +126,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
             }
             hideKeyboard(mainActivity)
         } catch (e: Exception) {
-            binding?.notificationCount?.error = view?.context?.getString(R.string.insert_number)
+            fragmentServiceBinding?.notificationCount?.error = view?.context?.getString(R.string.insert_number)
             showErrorToast()
         }
     }

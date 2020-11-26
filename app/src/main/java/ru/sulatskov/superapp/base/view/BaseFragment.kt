@@ -27,6 +27,7 @@ abstract class BaseFragment : Fragment(){
     ): View? {
         injectDependency()
         attachPresenter()
+        initToolbar()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
@@ -34,5 +35,6 @@ abstract class BaseFragment : Fragment(){
 
     abstract fun attachPresenter()
 
+    abstract fun initToolbar()
 
 }

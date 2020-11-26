@@ -38,9 +38,9 @@ class ContactFragment : BaseFragment(), BaseViewInterface {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        super.onCreateView(inflater, container, savedInstanceState)
         val binding = FragmentContactBinding.inflate(inflater, container, false)
         fragmentContactBinding = binding
+        super.onCreateView(inflater, container, savedInstanceState)
         return binding.root
     }
 
@@ -131,6 +131,12 @@ class ContactFragment : BaseFragment(), BaseViewInterface {
 
     override fun attachPresenter() {
         presenter.attach(this)
+    }
+
+    override fun initToolbar() {
+        fragmentContactBinding?.back?.setOnClickListener {
+            (activity as? MainActivity)?.onBackPressed()
+        }
     }
 
     override fun onDestroyView() {

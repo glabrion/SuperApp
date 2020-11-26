@@ -4,24 +4,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
+        android:background="?attr/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back" />
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
         style="@style/TextNormBlack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/enter_the_number_notifications" />
 
     <EditText
         android:id="@+id/notification_count"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:background="@drawable/shape_corner_bg"
         android:layout_marginStart="150dp"
-        android:gravity="center"
-        android:inputType="number"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="150dp" />
+        android:layout_marginEnd="150dp"
+        android:background="@drawable/shape_corner_bg"
+        android:gravity="center"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/start_service"

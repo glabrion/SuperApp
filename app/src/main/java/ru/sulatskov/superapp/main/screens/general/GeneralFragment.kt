@@ -48,6 +48,9 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         presenter.attach(this)
     }
 
+    override fun initToolbar() {
+    }
+
     override fun onDestroyView() {
         fragmentGeneralBinding = null
         super.onDestroyView()
