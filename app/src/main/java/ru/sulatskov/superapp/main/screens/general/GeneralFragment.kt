@@ -30,7 +30,6 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         super.onCreateView(inflater, container, savedInstanceState)
         val binding = FragmentGeneralBinding.inflate(inflater, container, false)
         fragmentGeneralBinding = binding
-        binding.description.text = getString(R.string.main_screen_text)
         binding.service.setOnClickListener {
             presenter.onServiceButtonClick()
         }
