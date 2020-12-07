@@ -36,10 +36,13 @@ class TextViewFragment : BaseFragment(), BaseViewInterface {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         fragmentTextViewBinding?.longText?.post {
-            if (fragmentTextViewBinding?.longText?.lineCount!! <= 7) {
-                fragmentTextViewBinding?.readFull?.visibility = View.GONE
-            } else {
-                fragmentTextViewBinding?.readFull?.visibility = View.VISIBLE
+            fragmentTextViewBinding?.longText?.lineCount?.let { lineCount ->
+                if (lineCount <= 4) {
+                    fragmentTextViewBinding?.readFull?.visibility = View.GONE
+                } else {
+                    fragmentTextViewBinding?.readFull?.visibility = View.VISIBLE
+                }
+
             }
         }
 
