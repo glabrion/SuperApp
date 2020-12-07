@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/SupperAppToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:navigationIcon="@drawable/ic_back"
-        style="@style/SupperAppToolbar"
-        android:background="?attr/colorPrimary">
-    </androidx.appcompat.widget.Toolbar>
+        android:background="?attr/colorPrimary"
+        app:navigationIcon="@drawable/ic_back"></androidx.appcompat.widget.Toolbar>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/long_text"
+            style="@style/TextMediumBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:text="@string/long_text" />
+
+        <TextView
+            android:id="@+id/read_full"
+            style="@style/TextMediumBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:text="@string/read_full"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
 
 </LinearLayout>

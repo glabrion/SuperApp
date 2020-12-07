@@ -14,7 +14,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <TextView
-        style="@style/TextNormBlack"
+        style="@style/TextMediumBlack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

@@ -27,7 +27,7 @@
 
         <TextView
             android:id="@+id/not_contact"
-            style="@style/TextNormBlack"
+            style="@style/TextMediumBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
