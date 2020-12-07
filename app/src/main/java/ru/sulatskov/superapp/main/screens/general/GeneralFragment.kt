@@ -36,6 +36,9 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         binding.contentProvider.setOnClickListener {
             presenter.onContentProviderButtonClick()
         }
+        binding.textView.setOnClickListener {
+            presenter.onTextViewButtonClick()
+        }
         return binding.root
     }
 
@@ -61,5 +64,9 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
 
     fun openContentProviderScreen() {
         (activity as? MainActivity)?.openContactScreen()
+    }
+
+    fun openTextViewScreen() {
+        (activity as? MainActivity)?.openTextViewScreen()
     }
 }

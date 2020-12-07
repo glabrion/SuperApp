@@ -3,11 +3,15 @@ package ru.sulatskov.superapp.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
 import ru.sulatskov.superapp.main.screens.contact.ContactFragment
 import ru.sulatskov.superapp.main.screens.general.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
+import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,30 +28,34 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openGeneralScreen() {
-        val generalFragment = GeneralFragment()
-        supportFragmentManager.beginTransaction().replace(
-            R.id.main_fragment_container,
-            generalFragment, GeneralFragment.TAG
-        ).addToBackStack(GeneralFragment.TAG)
-            .commit()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            add<GeneralFragment>(R.id.fragment_container_view, GeneralFragment.TAG)
+        }
     }
 
     fun openServiceScreen() {
-        val serviceFragment = ServiceFragment()
-        supportFragmentManager.beginTransaction().replace(
-            R.id.main_fragment_container,
-            serviceFragment, ServiceFragment.TAG
-        ).addToBackStack(ServiceFragment.TAG)
-            .commit()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<ServiceFragment>(R.id.fragment_container_view, ServiceFragment.TAG)
+            addToBackStack(ServiceFragment.TAG)
+        }
     }
 
     fun openContactScreen() {
-        val contactFragment = ContactFragment()
-        supportFragmentManager.beginTransaction().replace(
-            R.id.main_fragment_container,
-            contactFragment, ContactFragment.TAG
-        ).addToBackStack(ContactFragment.TAG)
-            .commit()
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<ContactFragment>(R.id.fragment_container_view, ContactFragment.TAG)
+            addToBackStack(ContactFragment.TAG)
+        }
+    }
+
+    fun openTextViewScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<TextViewFragment>(R.id.fragment_container_view, TextViewFragment.TAG)
+            addToBackStack(TextViewFragment.TAG)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

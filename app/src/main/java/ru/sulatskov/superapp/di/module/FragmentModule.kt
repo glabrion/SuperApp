@@ -5,6 +5,7 @@ import dagger.Provides
 import ru.sulatskov.superapp.main.screens.contact.ContactPresenter
 import ru.sulatskov.superapp.main.screens.general.GeneralPresenter
 import ru.sulatskov.superapp.main.screens.service_screen.ServicePresenter
+import ru.sulatskov.superapp.main.screens.textView.TextViewPresenter
 
 @Module
 class FragmentModule {
@@ -22,6 +23,11 @@ class FragmentModule {
     @Provides
     fun provideContactPresenter(): ContactPresenter {
         return ContactPresenter()
+    }
+
+    @Provides
+    fun provideTextViewPresenter(): TextViewPresenter {
+        return TextViewPresenter()
     }
 
 }

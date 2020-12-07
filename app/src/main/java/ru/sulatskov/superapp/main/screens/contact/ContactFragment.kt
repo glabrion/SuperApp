@@ -134,9 +134,10 @@ class ContactFragment : BaseFragment(), BaseViewInterface {
     }
 
     override fun initToolbar() {
-        fragmentContactBinding?.back?.setOnClickListener {
-            (activity as? MainActivity)?.onBackPressed()
+        fragmentContactBinding?.toolbar?.setNavigationOnClickListener {
+            activity?.onBackPressed()
         }
+        fragmentContactBinding?.toolbar?.title = getString(R.string.list_of_contact)
     }
 
     override fun onDestroyView() {

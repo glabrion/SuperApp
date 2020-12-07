@@ -68,9 +68,11 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     }
 
     override fun initToolbar() {
-        fragmentServiceBinding?.back?.setOnClickListener {
+        fragmentServiceBinding?.toolbar?.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
+
+        fragmentServiceBinding?.toolbar?.title =  getString(R.string.service)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

@@ -2,7 +2,8 @@ package ru.sulatskov.superapp.main.screens.general
 
 import ru.sulatskov.superapp.base.presenter.BasePresenter
 
-class GeneralPresenter: BasePresenter<GeneralFragment>() {
+class GeneralPresenter : BasePresenter<GeneralFragment>() {
+
     fun onServiceButtonClick() {
         view?.openServiceScreen()
     }
@@ -11,4 +12,7 @@ class GeneralPresenter: BasePresenter<GeneralFragment>() {
         view?.openContentProviderScreen()
     }
 
+    fun onTextViewButtonClick() {
+        view?.openTextViewScreen()
+    }
 }
