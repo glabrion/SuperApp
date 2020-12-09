@@ -18,7 +18,7 @@ fun BaseFragment.toast(msg: String) {
     }
 }
 
-fun Fragment.snackbar(msg: String) {
+fun BaseFragment.snackbar(msg: String) {
     view?.apply {
         Snackbar.make(this, msg, Snackbar.LENGTH_SHORT).show()
     }
