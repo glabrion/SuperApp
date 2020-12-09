@@ -18,4 +18,8 @@
     <string name="text_view">TextView</string>
     <string name="read_full">Read full</string>
     <string name="long_text">Available in Android 9 (API level 28) and higher, the magnifier widget is a virtual magnifying glass that displays an enlarged copy of a chosen View through an overlay pane that represents the lens. The feature improves the text insertion and selection user experience: when applying the magnifier to text, a user can precisely position the cursor or the selection handles by viewing the magnified text in a pane that follows their finger. Figure 1 below showcases the way the magnifier facilitates selecting text. The magnifier APIs are not tied to text, and this widget can be used in a variety of use cases, such as reading small type or enlarging hard-to-see place names on maps.</string>
+    <string name="textbigblack_style">TextBigBlack Style</string>
+    <string name="textmediumblack_style">TextMediumBlack Style</string>
+    <string name="textview_monospace_font">textview monospace font</string>
+    <string name="textview_casual_font">textview casual font</string>
 </resources>

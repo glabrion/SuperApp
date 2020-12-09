@@ -50,7 +50,7 @@
     <item name="android:textSize">20sp</item>
   </style>
 
-  <style name="TextNormWhite" parent="Text">
+  <style name="TextBigWhite" parent="Text">
     <item name="android:textColor">@color/color_white</item>
     <item name="fontFamily">sans-serif</item>
     <item name="android:textStyle">normal</item>
