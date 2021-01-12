@@ -2,6 +2,7 @@ package ru.sulatskov.superapp.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
@@ -9,6 +10,7 @@ import androidx.fragment.app.replace
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
 import ru.sulatskov.superapp.main.screens.contact.ContactFragment
+import ru.sulatskov.superapp.main.screens.editText.EditTextFragment
 import ru.sulatskov.superapp.main.screens.general.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
@@ -58,6 +60,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun openEditTextScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<EditTextFragment>(R.id.fragment_container_view, EditTextFragment.TAG)
+            addToBackStack(EditTextFragment.TAG)
+        }
+
+    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val fragment = supportFragmentManager.findFragmentByTag(ServiceFragment.TAG)
@@ -73,4 +85,5 @@ class MainActivity : AppCompatActivity() {
         val fragment = supportFragmentManager.findFragmentByTag(ContactFragment.TAG)
         fragment?.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+
 }

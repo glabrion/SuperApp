@@ -39,6 +39,9 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         binding.textView.setOnClickListener {
             presenter.onTextViewButtonClick()
         }
+        binding.editText.setOnClickListener {
+            presenter.onEditTextButtonClick()
+        }
         return binding.root
     }
 
@@ -68,5 +71,9 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
 
     fun openTextViewScreen() {
         (activity as? MainActivity)?.openTextViewScreen()
+    }
+
+    fun openEditTextScreen() {
+        (activity as? MainActivity)?.openEditTextScreen()
     }
 }

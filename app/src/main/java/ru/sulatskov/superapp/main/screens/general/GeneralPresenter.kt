@@ -15,4 +15,8 @@ class GeneralPresenter : BasePresenter<GeneralFragment>() {
     fun onTextViewButtonClick() {
         view?.openTextViewScreen()
     }
+
+    fun onEditTextButtonClick() {
+        view?.openEditTextScreen()
+    }
 }
