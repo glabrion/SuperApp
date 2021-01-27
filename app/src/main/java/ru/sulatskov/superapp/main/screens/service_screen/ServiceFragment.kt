@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.common.snackbar
 import ru.sulatskov.superapp.databinding.FragmentServiceBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
@@ -22,7 +21,7 @@ import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Com
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification.Companion.TASK_CODE
 import javax.inject.Inject
 
-class ServiceFragment : BaseFragment(), BaseViewInterface {
+class ServiceFragment : BaseFragment(), ServiceContractInterface.View {
 
     companion object {
         const val TAG = "ServiceFragment"
@@ -35,7 +34,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
     private var fragmentServiceBinding: FragmentServiceBinding? = null
     private var mainActivity: Activity? = null
     private val intentFilter = IntentFilter(BROADCAST_ACTION)
-    private val toastReviver = ToastReviver()
+    private val toastReviver = ToastReceiver()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -95,25 +94,25 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
         super.onDestroyView()
     }
 
-    private fun showStartServiceToast() {
+    override fun showStartServiceToast() {
         view?.context?.getString(R.string.start_service)
             ?.let { message -> snackbar(message) }
     }
 
-    private fun showErrorToast() {
+    override fun showErrorToast() {
         view?.context?.getString(R.string.insert_number)
             ?.let { message -> snackbar(message) }
     }
 
-    private fun showStopServiceToast() {
+    override fun showStopServiceToast() {
         view?.context?.getString(R.string.stop_service)?.let { message -> snackbar(message) }
     }
 
-    private fun showServiceFinishedToast() {
+    override fun showServiceFinishedToast() {
         view?.context?.getString(R.string.service_finished)?.let { message -> snackbar(message) }
     }
 
-    fun startService() {
+    override fun startService() {
         try {
             val countNotification: Int = fragmentServiceBinding?.notificationCount?.text.toString().toInt()
             val pendingIntent: PendingIntent? =
@@ -133,7 +132,7 @@ class ServiceFragment : BaseFragment(), BaseViewInterface {
         }
     }
 
-    fun stopService() {
+    override fun stopService() {
         showStopServiceToast()
         mainActivity?.stopService(Intent(view?.context, ServiceNotification::class.java))
     }

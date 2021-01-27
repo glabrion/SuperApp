@@ -16,7 +16,7 @@ import ru.sulatskov.superapp.databinding.FragmentTextViewBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import javax.inject.Inject
 
-class EditTextFragment : BaseFragment(), BaseViewInterface {
+class EditTextFragment : BaseFragment(), EditTextContractInterface.View {
 
     companion object {
         const val TAG = "EditTextFragment"
@@ -117,7 +117,7 @@ class EditTextFragment : BaseFragment(), BaseViewInterface {
         super.onDestroyView()
     }
 
-    fun showLoginAndPassword() {
+    override fun showLoginAndPassword() {
         hideKeyboard(activity)
         fragmentEditTextBinding?.loginText?.text =
             fragmentEditTextBinding?.loginEt?.text.toString()

@@ -6,7 +6,7 @@ import android.content.Intent
 import android.view.Gravity
 import android.widget.Toast
 
-class ToastReviver: BroadcastReceiver() {
+class ToastReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val status = intent?.getIntExtra(ServiceNotification.PARAM_STATUS, 0)
         val message = intent?.getStringExtra(ServiceNotification.MESSAGE_NOTIFICATION)

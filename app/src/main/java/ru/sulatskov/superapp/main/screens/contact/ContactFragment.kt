@@ -21,7 +21,7 @@ import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.MainActivity
 import javax.inject.Inject
 
-class ContactFragment : BaseFragment(), BaseViewInterface {
+class ContactFragment : BaseFragment(), ContactContractInterface.View {
 
     companion object {
         const val TAG = "ContactFragment"
@@ -85,11 +85,11 @@ class ContactFragment : BaseFragment(), BaseViewInterface {
         }
     }
 
-    private fun showToastNotPermission() {
+    override fun showToastNotPermission() {
         toast(getString(R.string.not_permission))
     }
 
-    private fun showContact() {
+    override fun showContact() {
         view?.context?.let {
             val contacts = getContactList()
             if (contacts.isEmpty()){
@@ -104,11 +104,11 @@ class ContactFragment : BaseFragment(), BaseViewInterface {
         }
     }
 
-    private fun showToastContactsIsEmpty() {
+    override fun showToastContactsIsEmpty() {
         toast(getString(R.string.not_contact))
     }
 
-    private fun getContactList(): List<String> {
+     override fun getContactList(): List<String> {
         val contacts = mutableListOf<String>()
         val contentResolver = (activity as? MainActivity)?.contentResolver
         val cursor =

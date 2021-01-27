@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <service android:name="ru.sulatskov.superapp.main.screens.service_screen.ServiceNotification" />
-        <receiver android:name=".main.screens.service_screen.ToastReviver" />
+        <receiver android:name=".main.screens.service_screen.ToastReceiver" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

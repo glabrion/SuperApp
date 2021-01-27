@@ -12,7 +12,7 @@ import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.MainActivity
 import javax.inject.Inject
 
-class GeneralFragment : BaseFragment(), BaseViewInterface {
+class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     companion object {
         const val TAG = "GeneralFragment"
@@ -61,19 +61,19 @@ class GeneralFragment : BaseFragment(), BaseViewInterface {
         super.onDestroyView()
     }
 
-    fun openServiceScreen() {
+    override fun openServiceScreen() {
         (activity as? MainActivity)?.openServiceScreen()
     }
 
-    fun openContentProviderScreen() {
+    override fun openContentProviderScreen() {
         (activity as? MainActivity)?.openContactScreen()
     }
 
-    fun openTextViewScreen() {
+    override fun openTextViewScreen() {
         (activity as? MainActivity)?.openTextViewScreen()
     }
 
-    fun openEditTextScreen() {
+    override fun openEditTextScreen() {
         (activity as? MainActivity)?.openEditTextScreen()
     }
 }

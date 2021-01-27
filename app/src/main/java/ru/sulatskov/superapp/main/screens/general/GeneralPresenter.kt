@@ -2,21 +2,22 @@ package ru.sulatskov.superapp.main.screens.general
 
 import ru.sulatskov.superapp.base.presenter.BasePresenter
 
-class GeneralPresenter : BasePresenter<GeneralFragment>() {
+class GeneralPresenter : BasePresenter<GeneralContractInterface.View>(),
+    GeneralContractInterface.Presenter {
 
-    fun onServiceButtonClick() {
+    override fun onServiceButtonClick() {
         view?.openServiceScreen()
     }
 
-    fun onContentProviderButtonClick() {
+    override fun onContentProviderButtonClick() {
         view?.openContentProviderScreen()
     }
 
-    fun onTextViewButtonClick() {
+    override fun onTextViewButtonClick() {
         view?.openTextViewScreen()
     }
 
-    fun onEditTextButtonClick() {
+    override fun onEditTextButtonClick() {
         view?.openEditTextScreen()
     }
 }

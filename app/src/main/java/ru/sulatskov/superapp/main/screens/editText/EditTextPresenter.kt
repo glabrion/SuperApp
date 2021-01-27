@@ -2,9 +2,10 @@ package ru.sulatskov.superapp.main.screens.editText
 
 import ru.sulatskov.superapp.base.presenter.BasePresenter
 
-class EditTextPresenter: BasePresenter<EditTextFragment>() {
+class EditTextPresenter : BasePresenter<EditTextContractInterface.View>(),
+    EditTextContractInterface.Presenter {
 
-    fun onLoginButtonClick() {
+    override fun onLoginButtonClick() {
         view?.showLoginAndPassword()
     }
 }
