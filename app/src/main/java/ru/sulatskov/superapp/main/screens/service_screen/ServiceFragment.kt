@@ -59,7 +59,7 @@ class ServiceFragment : BaseFragment(), ServiceContractInterface.View {
     }
 
     override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+        MainActivity.component.inject(this)
     }
 
     override fun attachPresenter() {

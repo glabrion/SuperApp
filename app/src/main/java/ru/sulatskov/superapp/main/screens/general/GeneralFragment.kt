@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
-import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.MainActivity
+import ru.sulatskov.superapp.main.router.Router
 import javax.inject.Inject
 
 class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
@@ -20,6 +18,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     @Inject
     lateinit var presenter: GeneralPresenter
+
+    @Inject
+    lateinit var router: Router
 
     private var fragmentGeneralBinding: FragmentGeneralBinding? = null
 
@@ -46,7 +47,7 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
     }
 
     override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+        MainActivity.component.inject(this)
     }
 
     override fun attachPresenter() {
@@ -62,18 +63,18 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
     }
 
     override fun openServiceScreen() {
-        (activity as? MainActivity)?.openServiceScreen()
+        router.openServiceScreen()
     }
 
     override fun openContentProviderScreen() {
-        (activity as? MainActivity)?.openContactScreen()
+        router.openContactScreen()
     }
 
     override fun openTextViewScreen() {
-        (activity as? MainActivity)?.openTextViewScreen()
+        router.openTextViewScreen()
     }
 
     override fun openEditTextScreen() {
-        (activity as? MainActivity)?.openEditTextScreen()
+        router.openEditTextScreen()
     }
 }

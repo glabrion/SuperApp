@@ -10,6 +10,7 @@ import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.databinding.FragmentContactBinding
 import ru.sulatskov.superapp.databinding.FragmentTextViewBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
+import ru.sulatskov.superapp.main.MainActivity
 import javax.inject.Inject
 
 class TextViewFragment : BaseFragment(), BaseViewInterface {
@@ -55,7 +56,7 @@ class TextViewFragment : BaseFragment(), BaseViewInterface {
     }
 
     override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+        MainActivity.component.inject(this)
     }
 
     override fun attachPresenter() {

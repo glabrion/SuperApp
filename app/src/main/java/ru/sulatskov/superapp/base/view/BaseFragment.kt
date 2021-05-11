@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
+import ru.sulatskov.superapp.di.component.DaggerMainComponent
+import ru.sulatskov.superapp.main.router.Router
+import javax.inject.Inject
 
-abstract class BaseFragment : Fragment(){
+open class BaseFragment : Fragment() {
 
     fun hideKeyboard(activity: Activity?) {
         val imm: InputMethodManager =
@@ -31,10 +34,10 @@ abstract class BaseFragment : Fragment(){
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    abstract fun injectDependency()
+    open fun injectDependency() {}
 
-    abstract fun attachPresenter()
+    open fun attachPresenter() {}
 
-    abstract fun initToolbar()
+    open fun initToolbar() {}
 
 }

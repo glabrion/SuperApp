@@ -59,6 +59,9 @@ dependencies {
     compileOnly 'javax.annotation:jsr250-api:1.0'
     implementation 'javax.inject:javax.inject:1'
 
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    implementation "com.google.dagger:dagger:$dagger2_version"
+
     annotationProcessor "com.google.dagger:dagger-android-processor:2.24"
 
     // Kotlin
