@@ -11,7 +11,7 @@ import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.router.Router
 import javax.inject.Inject
 
-open class BaseFragment : Fragment() {
+abstract class BaseFragment : Fragment() {
 
     fun hideKeyboard(activity: Activity?) {
         val imm: InputMethodManager =
@@ -34,10 +34,7 @@ open class BaseFragment : Fragment() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    open fun injectDependency() {}
-
-    open fun attachPresenter() {}
-
-    open fun initToolbar() {}
-
+    abstract fun injectDependency()
+    abstract fun attachPresenter()
+    abstract fun initToolbar()
 }
