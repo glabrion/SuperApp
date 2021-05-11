@@ -3,6 +3,7 @@ package ru.sulatskov.superapp.main
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.sulatskov.superapp.base.view.BaseActivity
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.di.component.MainComponent
@@ -12,7 +13,7 @@ import ru.sulatskov.superapp.main.screens.contact.ContactFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     companion object {
         lateinit var component: MainComponent
@@ -23,12 +24,15 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var router: Router
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun injectDependency() {
         component =
             DaggerMainComponent.builder().contextModule(ContextModule(this))
                 .build()
         component.inject(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         if (supportFragmentManager.backStackEntryCount == 0) {
