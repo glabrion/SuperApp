@@ -126,7 +126,7 @@ class ContactFragment : BaseFragment(), ContactContractInterface.View {
     }
 
     override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+        MainActivity.component.inject(this)
     }
 
     override fun attachPresenter() {

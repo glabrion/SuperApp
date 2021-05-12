@@ -14,6 +14,7 @@ import ru.sulatskov.superapp.databinding.FragmentContactBinding
 import ru.sulatskov.superapp.databinding.FragmentEditTextBinding
 import ru.sulatskov.superapp.databinding.FragmentTextViewBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
+import ru.sulatskov.superapp.main.MainActivity
 import javax.inject.Inject
 
 class EditTextFragment : BaseFragment(), EditTextContractInterface.View {
@@ -97,7 +98,7 @@ class EditTextFragment : BaseFragment(), EditTextContractInterface.View {
     }
 
     override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+        MainActivity.component.inject(this)
     }
 
     override fun attachPresenter() {

@@ -16,7 +16,7 @@ buildscript {
 }
 
 ext {
-  dagger2_version = '2.24'
+  dagger2_version = '2.29'
   fragment_version = "1.2.5"
  }
 

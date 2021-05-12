@@ -1,3 +1,4 @@
+rootProject.name = "SuperApp"
+include ':router'
 include ':hiltexample'
 include ':app'
-rootProject.name = "SuperApp"

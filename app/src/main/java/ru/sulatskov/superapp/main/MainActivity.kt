@@ -2,74 +2,42 @@ package ru.sulatskov.superapp.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.add
-import androidx.fragment.app.commit
-import androidx.fragment.app.replace
-import ru.sulatskov.superapp.R
+import ru.sulatskov.router.Router
+import ru.sulatskov.router.RouterFactory
+import ru.sulatskov.superapp.base.view.BaseActivity
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
+import ru.sulatskov.superapp.di.component.DaggerMainComponent
+import ru.sulatskov.superapp.di.component.MainComponent
+import ru.sulatskov.superapp.di.module.ContextModule
 import ru.sulatskov.superapp.main.screens.contact.ContactFragment
-import ru.sulatskov.superapp.main.screens.editText.EditTextFragment
 import ru.sulatskov.superapp.main.screens.general.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
-import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
+
+    companion object {
+        lateinit var component: MainComponent
+    }
 
     private lateinit var binding: ActivityMainBinding
+
+    val router: Router by lazy { RouterFactory().create(this) }
+
+    override fun injectDependency() {
+        component =
+            DaggerMainComponent.builder().contextModule(ContextModule(this))
+                .build()
+        component.inject(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         if (supportFragmentManager.backStackEntryCount == 0) {
-            openGeneralScreen()
+            router.openFragment(ExtrasFragmentFactory(GeneralFragment::class.java))
         }
     }
-
-    private fun openGeneralScreen() {
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            add<GeneralFragment>(R.id.fragment_container_view, GeneralFragment.TAG)
-            addToBackStack(GeneralFragment.TAG)
-        }
-    }
-
-    fun openServiceScreen() {
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace<ServiceFragment>(R.id.fragment_container_view, ServiceFragment.TAG)
-            addToBackStack(ServiceFragment.TAG)
-        }
-    }
-
-    fun openContactScreen() {
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace<ContactFragment>(R.id.fragment_container_view, ContactFragment.TAG)
-            addToBackStack(ContactFragment.TAG)
-        }
-    }
-
-    fun openTextViewScreen() {
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace<TextViewFragment>(R.id.fragment_container_view, TextViewFragment.TAG)
-            addToBackStack(TextViewFragment.TAG)
-        }
-    }
-
-    fun openEditTextScreen() {
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace<EditTextFragment>(R.id.fragment_container_view, EditTextFragment.TAG)
-            addToBackStack(EditTextFragment.TAG)
-        }
-
-    }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

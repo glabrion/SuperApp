@@ -1,5 +1,6 @@
 package ru.sulatskov.superapp.di.module
 
+import android.content.Context
 import dagger.Module
 import dagger.Provides
 import ru.sulatskov.superapp.main.screens.contact.ContactPresenter
@@ -35,5 +36,4 @@ class FragmentModule {
     fun provideEditTextPresenter(): EditTextPresenter {
         return EditTextPresenter()
     }
-
 }

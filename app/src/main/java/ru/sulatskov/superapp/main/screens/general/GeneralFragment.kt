@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
-import ru.sulatskov.superapp.di.component.DaggerMainComponent
+import ru.sulatskov.superapp.main.ExtrasFragmentFactory
 import ru.sulatskov.superapp.main.MainActivity
+import ru.sulatskov.superapp.main.screens.contact.ContactFragment
+import ru.sulatskov.superapp.main.screens.editText.EditTextFragment
+import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
+import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
 import javax.inject.Inject
 
 class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
@@ -46,7 +48,7 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
     }
 
     override fun injectDependency() {
-        DaggerMainComponent.builder().build().inject(this)
+        MainActivity.component.inject(this)
     }
 
     override fun attachPresenter() {
@@ -62,18 +64,18 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
     }
 
     override fun openServiceScreen() {
-        (activity as? MainActivity)?.openServiceScreen()
+        router.openFragment(ExtrasFragmentFactory(ServiceFragment::class.java))
     }
 
     override fun openContentProviderScreen() {
-        (activity as? MainActivity)?.openContactScreen()
+        router.openFragment(ExtrasFragmentFactory(ContactFragment::class.java))
     }
 
     override fun openTextViewScreen() {
-        (activity as? MainActivity)?.openTextViewScreen()
+        router.openFragment(ExtrasFragmentFactory(TextViewFragment::class.java))
     }
 
     override fun openEditTextScreen() {
-        (activity as? MainActivity)?.openEditTextScreen()
+        router.openFragment(ExtrasFragmentFactory(EditTextFragment::class.java))
     }
 }
