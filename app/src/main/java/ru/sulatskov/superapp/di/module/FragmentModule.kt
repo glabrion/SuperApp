@@ -3,7 +3,6 @@ package ru.sulatskov.superapp.di.module
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import ru.sulatskov.superapp.main.router.Router
 import ru.sulatskov.superapp.main.screens.contact.ContactPresenter
 import ru.sulatskov.superapp.main.screens.editText.EditTextPresenter
 import ru.sulatskov.superapp.main.screens.general.GeneralPresenter

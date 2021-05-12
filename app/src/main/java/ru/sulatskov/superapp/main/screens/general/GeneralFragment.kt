@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import ru.sulatskov.superapp.base.view.BaseFragment
 import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
+import ru.sulatskov.superapp.main.ExtrasFragmentFactory
 import ru.sulatskov.superapp.main.MainActivity
-import ru.sulatskov.superapp.main.router.Router
+import ru.sulatskov.superapp.main.screens.contact.ContactFragment
+import ru.sulatskov.superapp.main.screens.editText.EditTextFragment
+import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
+import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
 import javax.inject.Inject
 
 class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
@@ -18,9 +22,6 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     @Inject
     lateinit var presenter: GeneralPresenter
-
-    @Inject
-    lateinit var router: Router
 
     private var fragmentGeneralBinding: FragmentGeneralBinding? = null
 
@@ -63,18 +64,18 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
     }
 
     override fun openServiceScreen() {
-        router.openServiceScreen()
+        router.openFragment(ExtrasFragmentFactory(ServiceFragment::class.java))
     }
 
     override fun openContentProviderScreen() {
-        router.openContactScreen()
+        router.openFragment(ExtrasFragmentFactory(ContactFragment::class.java))
     }
 
     override fun openTextViewScreen() {
-        router.openTextViewScreen()
+        router.openFragment(ExtrasFragmentFactory(TextViewFragment::class.java))
     }
 
     override fun openEditTextScreen() {
-        router.openEditTextScreen()
+        router.openFragment(ExtrasFragmentFactory(EditTextFragment::class.java))
     }
 }
