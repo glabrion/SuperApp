@@ -36,6 +36,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:drawableStart="@android:drawable/ic_lock_lock"
+            android:drawableEnd="@android:drawable/ic_menu_send"
             android:paddingHorizontal="20dp"
             android:text="@string/button_with_drawable" />
 

@@ -57,7 +57,7 @@ class ButtonFragment : BaseFragment(), ButtonsContractInterface.View {
         fragmentButtonBinding?.toolbar?.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
-        fragmentButtonBinding?.toolbar?.title = getString(R.string.text_view)
+        fragmentButtonBinding?.toolbar?.title = getString(R.string.buttons_text)
 
     }
 
