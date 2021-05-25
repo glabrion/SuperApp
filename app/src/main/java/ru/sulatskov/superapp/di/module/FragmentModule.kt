@@ -41,5 +41,4 @@ class FragmentModule {
     fun provideButtonPresenter(): ButtonPresenter {
         return ButtonPresenter()
     }
-
 }

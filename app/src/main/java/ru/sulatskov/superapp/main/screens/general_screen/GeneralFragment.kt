@@ -43,6 +43,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
         binding.buttonScreen.setOnClickListener {
             presenter.onButtonScreenClick()
         }
+        binding.appBar.setOnClickListener {
+            presenter.onAppBarButtonClick()
+        }
         return binding.root
     }
 
@@ -80,5 +83,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     override fun openButtonScreen() {
         (activity as? MainActivity)?.openButtonScreen()
+    }
+
+    override fun openAppBarScreen() {
+        (activity as? MainActivity)?.openAppBarScreen()
     }
 }

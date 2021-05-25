@@ -4,6 +4,7 @@ import dagger.Component
 import ru.sulatskov.superapp.BaseApp
 import ru.sulatskov.superapp.di.module.ApplicationModule
 import ru.sulatskov.superapp.di.module.FragmentModule
+import ru.sulatskov.superapp.main.screens.app_bar_screen.AppBarFragment
 import ru.sulatskov.superapp.main.screens.button_screen.ButtonFragment
 import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragment
 import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
@@ -22,5 +23,4 @@ interface MainComponent {
     fun inject(textViewFragment: TextViewFragment)
     fun inject(editTextFragment: EditTextFragment)
     fun inject(buttonFragment: ButtonFragment)
-
 }

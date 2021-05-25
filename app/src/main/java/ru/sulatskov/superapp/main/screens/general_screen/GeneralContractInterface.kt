@@ -11,6 +11,7 @@ interface GeneralContractInterface {
         fun openContentProviderScreen()
         fun openEditTextScreen()
         fun openButtonScreen()
+        fun openAppBarScreen()
     }
 
     interface Presenter : BasePresenterInterface<View> {
@@ -19,5 +20,6 @@ interface GeneralContractInterface {
         fun onContentProviderButtonClick()
         fun onEditTextButtonClick()
         fun onButtonScreenClick()
+        fun onAppBarButtonClick()
     }
 }

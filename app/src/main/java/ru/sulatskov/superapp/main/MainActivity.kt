@@ -8,6 +8,7 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
+import ru.sulatskov.superapp.main.screens.app_bar_screen.AppBarFragment
 import ru.sulatskov.superapp.main.screens.button_screen.ButtonFragment
 import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragment
 import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
@@ -74,6 +75,14 @@ class MainActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             replace<ButtonFragment>(R.id.fragment_container_view, ButtonFragment.TAG)
             addToBackStack(ButtonFragment.TAG)
+        }
+    }
+
+    fun openAppBarScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<AppBarFragment>(R.id.fragment_container_view, AppBarFragment.TAG)
+            addToBackStack(AppBarFragment.TAG)
         }
     }
 
