@@ -2,18 +2,18 @@ package ru.sulatskov.superapp.main
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.databinding.ActivityMainBinding
-import ru.sulatskov.superapp.main.screens.contact.ContactFragment
-import ru.sulatskov.superapp.main.screens.editText.EditTextFragment
-import ru.sulatskov.superapp.main.screens.general.GeneralFragment
+import ru.sulatskov.superapp.main.screens.button_screen.ButtonFragment
+import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragment
+import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
+import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
-import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
+import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -67,7 +67,14 @@ class MainActivity : AppCompatActivity() {
             replace<EditTextFragment>(R.id.fragment_container_view, EditTextFragment.TAG)
             addToBackStack(EditTextFragment.TAG)
         }
+    }
 
+    fun openButtonScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<ButtonFragment>(R.id.fragment_container_view, ButtonFragment.TAG)
+            addToBackStack(ButtonFragment.TAG)
+        }
     }
 
 
@@ -94,5 +101,4 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
     }
-
 }

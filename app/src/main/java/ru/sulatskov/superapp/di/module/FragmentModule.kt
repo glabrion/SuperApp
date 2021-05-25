@@ -2,11 +2,12 @@ package ru.sulatskov.superapp.di.module
 
 import dagger.Module
 import dagger.Provides
-import ru.sulatskov.superapp.main.screens.contact.ContactPresenter
-import ru.sulatskov.superapp.main.screens.editText.EditTextPresenter
-import ru.sulatskov.superapp.main.screens.general.GeneralPresenter
+import ru.sulatskov.superapp.main.screens.button_screen.ButtonPresenter
+import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactPresenter
+import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextPresenter
+import ru.sulatskov.superapp.main.screens.general_screen.GeneralPresenter
 import ru.sulatskov.superapp.main.screens.service_screen.ServicePresenter
-import ru.sulatskov.superapp.main.screens.textView.TextViewPresenter
+import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewPresenter
 
 @Module
 class FragmentModule {
@@ -34,6 +35,11 @@ class FragmentModule {
     @Provides
     fun provideEditTextPresenter(): EditTextPresenter {
         return EditTextPresenter()
+    }
+
+    @Provides
+    fun provideButtonPresenter(): ButtonPresenter {
+        return ButtonPresenter()
     }
 
 }

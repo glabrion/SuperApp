@@ -4,11 +4,12 @@ import dagger.Component
 import ru.sulatskov.superapp.BaseApp
 import ru.sulatskov.superapp.di.module.ApplicationModule
 import ru.sulatskov.superapp.di.module.FragmentModule
-import ru.sulatskov.superapp.main.screens.contact.ContactFragment
-import ru.sulatskov.superapp.main.screens.editText.EditTextFragment
-import ru.sulatskov.superapp.main.screens.general.GeneralFragment
+import ru.sulatskov.superapp.main.screens.button_screen.ButtonFragment
+import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragment
+import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
+import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
-import ru.sulatskov.superapp.main.screens.textView.TextViewFragment
+import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
 
 @Component(modules = [ApplicationModule::class, FragmentModule::class])
 interface MainComponent {
@@ -20,5 +21,6 @@ interface MainComponent {
     fun inject(contactFragment: ContactFragment)
     fun inject(textViewFragment: TextViewFragment)
     fun inject(editTextFragment: EditTextFragment)
+    fun inject(buttonFragment: ButtonFragment)
 
 }

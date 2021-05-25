@@ -1,4 +1,4 @@
-package ru.sulatskov.superapp.main.screens.editText
+package ru.sulatskov.superapp.main.screens.edit_text_screen
 
 import android.os.Bundle
 import android.text.Editable
@@ -6,13 +6,9 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.addTextChangedListener
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
-import ru.sulatskov.superapp.databinding.FragmentContactBinding
 import ru.sulatskov.superapp.databinding.FragmentEditTextBinding
-import ru.sulatskov.superapp.databinding.FragmentTextViewBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import javax.inject.Inject
 

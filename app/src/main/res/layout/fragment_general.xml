@@ -45,13 +45,14 @@
                 android:text="@string/edittext" />
 
             <Button
+                android:id="@+id/button_screen"
                 style="@style/SuppAppButton"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Button" />
+                android:text="@string/btn_text" />
 
             <Button
                 style="@style/SuppAppButton"
@@ -60,7 +61,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="App-bar" />
+                android:text="@string/app_bar" />
 
             <Button
                 style="@style/SuppAppButton"
@@ -69,7 +70,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="ToolBar" />
+                android:text="@string/toolbar" />
 
             <Button
                 style="@style/SuppAppButton"
@@ -78,7 +79,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="ImageView" />
+                android:text="@string/imageview" />
 
             <Button
                 style="@style/SuppAppButton"
@@ -87,7 +88,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Spinner" />
+                android:text="@string/spinner" />
 
             <Button
                 style="@style/SuppAppButton"
@@ -96,7 +97,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="AdapterView " />
+                android:text="@string/adapterview" />
 
             <Button
                 style="@style/SuppAppButton"
@@ -105,7 +106,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="RecyclerView" />
+                android:text="@string/recyclerview" />
 
             <Button
                 android:id="@+id/service"

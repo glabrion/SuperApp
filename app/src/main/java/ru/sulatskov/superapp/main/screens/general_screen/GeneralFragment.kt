@@ -1,12 +1,10 @@
-package ru.sulatskov.superapp.main.screens.general
+package ru.sulatskov.superapp.main.screens.general_screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.databinding.FragmentGeneralBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
 import ru.sulatskov.superapp.main.MainActivity
@@ -42,6 +40,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
         binding.editText.setOnClickListener {
             presenter.onEditTextButtonClick()
         }
+        binding.buttonScreen.setOnClickListener {
+            presenter.onButtonScreenClick()
+        }
         return binding.root
     }
 
@@ -75,5 +76,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     override fun openEditTextScreen() {
         (activity as? MainActivity)?.openEditTextScreen()
+    }
+
+    override fun openButtonScreen() {
+        (activity as? MainActivity)?.openButtonScreen()
     }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/SupperAppToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:navigationIcon="@drawable/ic_back" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/image_button"
+            style="@style/SuppAppButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:contentDescription="@string/button_with_icon"
+            android:src="@android:drawable/ic_delete" />
+
+        <Button
+            android:id="@+id/button_drawable"
+            style="@style/SuppAppButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@android:drawable/ic_lock_lock"
+            android:paddingHorizontal="20dp"
+            android:text="@string/button_with_drawable" />
+
+        <ru.sulatskov.superapp.common.ProgressButton
+            android:id="@+id/progress_button"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            app:text_color="@color/color_white"
+            app:text="@string/progress_button"
+            app:progress_color="@color/color_white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

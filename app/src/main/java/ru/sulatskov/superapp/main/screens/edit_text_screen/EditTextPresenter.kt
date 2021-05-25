@@ -1,4 +1,4 @@
-package ru.sulatskov.superapp.main.screens.editText
+package ru.sulatskov.superapp.main.screens.edit_text_screen
 
 import ru.sulatskov.superapp.base.presenter.BasePresenter
 

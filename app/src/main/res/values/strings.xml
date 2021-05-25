@@ -31,4 +31,18 @@
     <string name="password_">password:</string>
     <string name="has_focus">EditText has focus</string>
     <string name="has_not_focus">EditText has not focus</string>
+    <string name="button_with_icon">Button with icon</string>
+    <string name="button_with_drawable">button with drawable</string>
+    <string name="image_drawable">Image drawable</string>
+    <string name="image_button">Image button</string>
+    <string name="btn_text">Button</string>
+    <string name="app_bar">App-bar</string>
+    <string name="toolbar">ToolBar</string>
+    <string name="imageview">ImageView</string>
+    <string name="spinner">Spinner</string>
+    <string name="adapterview">AdapterView</string>
+    <string name="recyclerview">RecyclerView</string>
+    <string name="progress_complete">Progress complete</string>
+    <string name="progress_button">Progress button</string>
+    <string name="success_text">Success</string>
 </resources>

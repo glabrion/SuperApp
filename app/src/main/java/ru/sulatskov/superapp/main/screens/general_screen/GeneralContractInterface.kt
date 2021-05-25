@@ -1,4 +1,4 @@
-package ru.sulatskov.superapp.main.screens.general
+package ru.sulatskov.superapp.main.screens.general_screen
 
 import ru.sulatskov.superapp.base.presenter.BasePresenterInterface
 import ru.sulatskov.superapp.base.view.BaseViewInterface
@@ -10,6 +10,7 @@ interface GeneralContractInterface {
         fun openServiceScreen()
         fun openContentProviderScreen()
         fun openEditTextScreen()
+        fun openButtonScreen()
     }
 
     interface Presenter : BasePresenterInterface<View> {
@@ -17,5 +18,6 @@ interface GeneralContractInterface {
         fun onServiceButtonClick()
         fun onContentProviderButtonClick()
         fun onEditTextButtonClick()
+        fun onButtonScreenClick()
     }
 }

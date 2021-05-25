@@ -1,4 +1,4 @@
-package ru.sulatskov.superapp.main.screens.contact
+package ru.sulatskov.superapp.main.screens.content_provider_screen
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -12,7 +12,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
-import ru.sulatskov.superapp.base.view.BaseViewInterface
 import ru.sulatskov.superapp.common.gone
 import ru.sulatskov.superapp.common.toast
 import ru.sulatskov.superapp.common.visible
