@@ -15,6 +15,7 @@ import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
 import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
+import ru.sulatskov.superapp.main.screens.toolbar_screen.ToolbarFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,6 +84,14 @@ class MainActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             replace<AppBarFragment>(R.id.fragment_container_view, AppBarFragment.TAG)
             addToBackStack(AppBarFragment.TAG)
+        }
+    }
+
+    fun openToolbarScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<ToolbarFragment>(R.id.fragment_container_view, ToolbarFragment.TAG)
+            addToBackStack(ToolbarFragment.TAG)
         }
     }
 

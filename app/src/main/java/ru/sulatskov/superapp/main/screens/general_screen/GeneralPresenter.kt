@@ -28,4 +28,8 @@ class GeneralPresenter : BasePresenter<GeneralContractInterface.View>(),
     override fun onAppBarButtonClick() {
         view?.openAppBarScreen()
     }
+
+    fun onToolbarButtonClick() {
+        view?.openToolbarScreen()
+    }
 }

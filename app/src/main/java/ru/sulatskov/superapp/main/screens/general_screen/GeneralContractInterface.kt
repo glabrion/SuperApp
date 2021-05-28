@@ -12,6 +12,7 @@ interface GeneralContractInterface {
         fun openEditTextScreen()
         fun openButtonScreen()
         fun openAppBarScreen()
+        fun openToolbarScreen()
     }
 
     interface Presenter : BasePresenterInterface<View> {
