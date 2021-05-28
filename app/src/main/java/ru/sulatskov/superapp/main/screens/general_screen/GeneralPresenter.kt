@@ -29,7 +29,11 @@ class GeneralPresenter : BasePresenter<GeneralContractInterface.View>(),
         view?.openAppBarScreen()
     }
 
-    fun onToolbarButtonClick() {
+    override fun onToolbarButtonClick() {
         view?.openToolbarScreen()
+    }
+
+    override fun onImageViewButtonClick() {
+        view?.openImageViewScreen()
     }
 }

@@ -75,6 +75,7 @@
                 android:text="@string/toolbar" />
 
             <Button
+                android:id="@+id/image_view_button"
                 style="@style/SuppAppButton"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"

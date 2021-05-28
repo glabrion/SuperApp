@@ -49,6 +49,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
         binding.toolbarButton.setOnClickListener {
             presenter.onToolbarButtonClick()
         }
+        binding.imageViewButton.setOnClickListener {
+            presenter.onImageViewButtonClick()
+        }
         return binding.root
     }
 
@@ -94,5 +97,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     override fun openToolbarScreen() {
         (activity as? MainActivity)?.openToolbarScreen()
+    }
+
+    override fun openImageViewScreen() {
+        (activity as? MainActivity)?.openImageViewScreen()
     }
 }

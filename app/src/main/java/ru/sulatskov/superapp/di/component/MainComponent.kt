@@ -9,6 +9,7 @@ import ru.sulatskov.superapp.main.screens.button_screen.ButtonFragment
 import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragment
 import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
 import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
+import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
 
@@ -24,4 +25,5 @@ interface MainComponent {
     fun inject(editTextFragment: EditTextFragment)
     fun inject(buttonFragment: ButtonFragment)
     fun inject(appBarFragment: AppBarFragment)
+    fun inject(imageViewFragment: ImageViewFragment)
 }
