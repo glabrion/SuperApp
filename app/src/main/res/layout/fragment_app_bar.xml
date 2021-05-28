@@ -14,5 +14,11 @@
         android:background="?attr/colorPrimary"
         app:navigationIcon="@drawable/ic_back" />
 
+    <TextView
+        android:id="@+id/search_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/TextBigBlack"/>
+
 
 </LinearLayout>

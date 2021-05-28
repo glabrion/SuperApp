@@ -23,4 +23,5 @@ interface MainComponent {
     fun inject(textViewFragment: TextViewFragment)
     fun inject(editTextFragment: EditTextFragment)
     fun inject(buttonFragment: ButtonFragment)
+    fun inject(appBarFragment: AppBarFragment)
 }

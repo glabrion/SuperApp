@@ -9,8 +9,9 @@ import androidx.core.content.ContextCompat
 import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
 import ru.sulatskov.superapp.common.snackbar
-import ru.sulatskov.superapp.common.toast
 import ru.sulatskov.superapp.databinding.FragmentAppBarBinding
+import ru.sulatskov.superapp.di.component.DaggerMainComponent
+import javax.inject.Inject
 
 class AppBarFragment : BaseFragment(), AppBarContractInterface.View {
 
@@ -18,6 +19,8 @@ class AppBarFragment : BaseFragment(), AppBarContractInterface.View {
         const val TAG = "AppBarFragment"
     }
 
+    @Inject
+    lateinit var presenter: AppBarPresenter
     private var fragmentAppBarBinding: FragmentAppBarBinding? = null
     private var isLiked = false
 
@@ -35,7 +38,7 @@ class AppBarFragment : BaseFragment(), AppBarContractInterface.View {
     }
 
     override fun injectDependency() {
-
+        DaggerMainComponent.builder().build().inject(this)
     }
 
     override fun initToolbar() {
@@ -47,10 +50,45 @@ class AppBarFragment : BaseFragment(), AppBarContractInterface.View {
         fragmentAppBarBinding?.toolbar?.setOnMenuItemClickListener {
             onOptionsItemSelected(it)
         }
+        initSearchAction()
+    }
+
+    private fun initSearchAction() {
+        val expandListener = object : MenuItem.OnActionExpandListener {
+            override fun onMenuItemActionCollapse(item: MenuItem): Boolean {
+                fragmentAppBarBinding?.toolbar?.menu?.findItem(R.id.action_like)?.isVisible = true
+                fragmentAppBarBinding?.toolbar?.menu?.findItem(R.id.action_settings)?.isVisible =
+                    true
+                return true
+            }
+
+            override fun onMenuItemActionExpand(item: MenuItem): Boolean {
+                fragmentAppBarBinding?.toolbar?.menu?.findItem(R.id.action_like)?.isVisible = false
+                fragmentAppBarBinding?.toolbar?.menu?.findItem(R.id.action_settings)?.isVisible =
+                    false
+                return true
+            }
+        }
+        val actionSearchMenuItem =
+            fragmentAppBarBinding?.toolbar?.menu?.findItem(R.id.action_search)
+        actionSearchMenuItem?.setOnActionExpandListener(expandListener)
+
+        (actionSearchMenuItem?.actionView as? android.widget.SearchView)?.setOnQueryTextListener(
+            object :
+                android.widget.SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    presenter.onSearchChange(newText)
+                    return true
+                }
+            })
     }
 
     override fun attachPresenter() {
-
+        presenter.attach(this)
     }
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
@@ -97,5 +135,9 @@ class AppBarFragment : BaseFragment(), AppBarContractInterface.View {
     enum class ToastType {
         ACTION_SETTING,
         ACTION_LIKE
+    }
+
+    override fun showText(newText: String?) {
+        fragmentAppBarBinding?.searchText?.text = newText
     }
 }
