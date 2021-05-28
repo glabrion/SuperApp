@@ -55,7 +55,7 @@ class ImageViewFragment : BaseFragment(), ImageViewContractInterface.View {
         fragmentAppBarBinding?.toolbar?.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
-        fragmentAppBarBinding?.toolbar?.title = getString(R.string.app_bar_text)
+        fragmentAppBarBinding?.toolbar?.title = getString(R.string.image_view_text)
     }
 
     override fun attachPresenter() {
