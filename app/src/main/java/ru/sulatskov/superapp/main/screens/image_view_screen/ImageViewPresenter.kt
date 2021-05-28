@@ -5,7 +5,11 @@ import ru.sulatskov.superapp.base.presenter.BasePresenter
 class ImageViewPresenter : BasePresenter<ImageViewContractInterface.View>(),
     ImageViewContractInterface.Presenter {
 
-    override fun onSelectImageClick() {
-        view?.selectImage()
+    override fun onSelectImageFromGalleryClick() {
+        view?.selectImageFromGallery()
+    }
+
+    override fun onSelectImageFromCameraClick() {
+        view?.selectImageFromCamera()
     }
 }

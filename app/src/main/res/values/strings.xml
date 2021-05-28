@@ -54,5 +54,6 @@
     <string name="like">Like</string>
     <string name="search">Search</string>
     <string name="collapsing_toolbar_layout_text">CollapsingToolbarLayout</string>
-    <string name="select_image">Select Image</string>
+    <string name="select_image_from_camera">Select image from camera</string>
+    <string name="select_image_from_gallery">Select image from gallery</string>
 </resources>

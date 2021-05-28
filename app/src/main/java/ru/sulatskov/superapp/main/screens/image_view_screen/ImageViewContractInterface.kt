@@ -5,10 +5,12 @@ import ru.sulatskov.superapp.base.view.BaseViewInterface
 
 interface ImageViewContractInterface {
     interface View : BaseViewInterface {
-        fun selectImage()
+        fun selectImageFromGallery()
+        fun selectImageFromCamera()
     }
 
     interface Presenter : BasePresenterInterface<View> {
-        fun onSelectImageClick()
+        fun onSelectImageFromGalleryClick()
+        fun onSelectImageFromCameraClick()
     }
 }

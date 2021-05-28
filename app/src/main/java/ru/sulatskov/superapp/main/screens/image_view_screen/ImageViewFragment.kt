@@ -1,7 +1,7 @@
 package ru.sulatskov.superapp.main.screens.image_view_screen
 
 import android.content.Intent
-import android.database.Cursor
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -12,7 +12,6 @@ import ru.sulatskov.superapp.R
 import ru.sulatskov.superapp.base.view.BaseFragment
 import ru.sulatskov.superapp.databinding.FragmentImageViewBinding
 import ru.sulatskov.superapp.di.component.DaggerMainComponent
-import ru.sulatskov.superapp.main.MainActivity
 import javax.inject.Inject
 
 
@@ -21,6 +20,7 @@ class ImageViewFragment : BaseFragment(), ImageViewContractInterface.View {
     companion object {
         const val TAG = "ImageViewFragment"
         const val ACTION_REQUEST_GALLERY = 1
+        const val ACTION_REQUEST_CAMERA = 2
     }
 
     @Inject
@@ -38,8 +38,12 @@ class ImageViewFragment : BaseFragment(), ImageViewContractInterface.View {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        fragmentAppBarBinding?.selectImage?.setOnClickListener {
-            presenter.onSelectImageClick()
+        fragmentAppBarBinding?.selectImageFromGallery?.setOnClickListener {
+            presenter.onSelectImageFromGalleryClick()
+        }
+
+        fragmentAppBarBinding?.selectImageFromCamera?.setOnClickListener {
+            presenter.onSelectImageFromCameraClick()
         }
     }
 
@@ -63,7 +67,7 @@ class ImageViewFragment : BaseFragment(), ImageViewContractInterface.View {
         super.onDestroyView()
     }
 
-    override fun selectImage() {
+    override fun selectImageFromGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
 
@@ -71,13 +75,26 @@ class ImageViewFragment : BaseFragment(), ImageViewContractInterface.View {
         startActivityForResult(chooser, ACTION_REQUEST_GALLERY)
     }
 
+    override fun selectImageFromCamera() {
+        val takePicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        startActivityForResult(takePicture, ACTION_REQUEST_CAMERA)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        val galleryImageUri: Uri? = data?.data
-        try {
-            fragmentAppBarBinding?.image?.setImageURI(galleryImageUri)
-        } catch (ex: Exception) {
-            ex.printStackTrace()
+        when (requestCode) {
+            ACTION_REQUEST_CAMERA -> {
+                val imageBitmap = data?.extras?.get("data") as Bitmap
+                fragmentAppBarBinding?.image?.setImageBitmap(imageBitmap)
+            }
+            ACTION_REQUEST_GALLERY -> {
+                val imageUri: Uri? = data?.data
+                try {
+                    fragmentAppBarBinding?.image?.setImageURI(imageUri)
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                }
+            }
         }
     }
 }
