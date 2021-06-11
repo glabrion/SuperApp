@@ -63,6 +63,8 @@ dependencies {
 
     // Kotlin
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
+
+    implementation("androidx.work:work-runtime-ktx:$work_version")
 }
 
 kapt {
