@@ -15,7 +15,7 @@ import javax.inject.Inject
 class ButtonFragment : BaseFragment(), ButtonsContractInterface.View {
 
     companion object {
-        const val TAG = "ButtonFragment"
+        const val TAG = "ButtonFragmentTag"
     }
 
     @Inject

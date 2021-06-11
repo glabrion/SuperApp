@@ -15,7 +15,7 @@ import javax.inject.Inject
 class EditTextFragment : BaseFragment(), EditTextContractInterface.View {
 
     companion object {
-        const val TAG = "EditTextFragment"
+        const val TAG = "EditTextFragmentTag"
     }
 
     @Inject

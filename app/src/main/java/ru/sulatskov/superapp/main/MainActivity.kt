@@ -17,6 +17,7 @@ import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
 import ru.sulatskov.superapp.main.screens.toolbar_screen.ToolbarFragment
+import ru.sulatskov.superapp.main.screens.work_manager_screen.WorkManagerFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -101,6 +102,14 @@ class MainActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             replace<ImageViewFragment>(R.id.fragment_container_view, ImageViewFragment.TAG)
             addToBackStack(ImageViewFragment.TAG)
+        }
+    }
+
+   fun openWorkManagerScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<WorkManagerFragment>(R.id.fragment_container_view, WorkManagerFragment.TAG)
+            addToBackStack(WorkManagerFragment.TAG)
         }
     }
 

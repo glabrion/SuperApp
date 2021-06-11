@@ -24,7 +24,7 @@ import javax.inject.Inject
 class ServiceFragment : BaseFragment(), ServiceContractInterface.View {
 
     companion object {
-        const val TAG = "ServiceFragment"
+        const val TAG = "ServiceFragmentTag"
         const val BROADCAST_ACTION = "BROADCAST_ACTION"
     }
 

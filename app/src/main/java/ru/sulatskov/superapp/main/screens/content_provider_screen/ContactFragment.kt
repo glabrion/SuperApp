@@ -23,7 +23,7 @@ import javax.inject.Inject
 class ContactFragment : BaseFragment(), ContactContractInterface.View {
 
     companion object {
-        const val TAG = "ContactFragment"
+        const val TAG = "ContactFragmentTag"
         var READ_CONTACTS_GRANTED = false
         var REQUEST_CODE_READ_CONTACTS = 1
     }

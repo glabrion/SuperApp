@@ -14,7 +14,7 @@ import javax.inject.Inject
 class TextViewFragment : BaseFragment(), BaseViewInterface {
 
     companion object {
-        const val TAG = "TextViewFragment"
+        const val TAG = "TextViewFragmentTag"
     }
 
     @Inject

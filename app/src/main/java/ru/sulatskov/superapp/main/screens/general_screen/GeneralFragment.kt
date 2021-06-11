@@ -13,7 +13,7 @@ import javax.inject.Inject
 class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     companion object {
-        const val TAG = "GeneralFragment"
+        const val TAG = "GeneralFragmentTag"
     }
 
     @Inject
@@ -51,6 +51,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
         }
         binding.imageViewButton.setOnClickListener {
             presenter.onImageViewButtonClick()
+        }
+        binding.workManager.setOnClickListener {
+            presenter.onWorkManagerButtonClick()
         }
         return binding.root
     }
@@ -101,5 +104,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     override fun openImageViewScreen() {
         (activity as? MainActivity)?.openImageViewScreen()
+    }
+
+    override fun openWorkManagerScreen() {
+        (activity as? MainActivity)?.openWorkManagerScreen()
     }
 }

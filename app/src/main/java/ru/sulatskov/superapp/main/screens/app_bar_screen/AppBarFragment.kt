@@ -16,11 +16,12 @@ import javax.inject.Inject
 class AppBarFragment : BaseFragment(), AppBarContractInterface.View {
 
     companion object {
-        const val TAG = "AppBarFragment"
+        const val TAG = "AppBarFragmentTag"
     }
 
     @Inject
     lateinit var presenter: AppBarPresenter
+
     private var fragmentAppBarBinding: FragmentAppBarBinding? = null
     private var isLiked = false
 

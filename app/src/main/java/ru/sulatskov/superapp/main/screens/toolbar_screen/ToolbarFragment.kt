@@ -19,7 +19,7 @@ import javax.inject.Inject
 class ToolbarFragment : BaseFragment(), ToolbarContractInterface.View {
 
     companion object {
-        const val TAG = "ToolbarFragment"
+        const val TAG = "ToolbarFragmentTag"
     }
 
     private var fragmentAppBarBinding: FragmentToolbarBinding? = null

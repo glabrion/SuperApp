@@ -36,4 +36,8 @@ class GeneralPresenter : BasePresenter<GeneralContractInterface.View>(),
     override fun onImageViewButtonClick() {
         view?.openImageViewScreen()
     }
+
+    override fun onWorkManagerButtonClick() {
+        view?.openWorkManagerScreen()
+    }
 }

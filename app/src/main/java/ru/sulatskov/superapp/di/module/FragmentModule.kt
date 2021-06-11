@@ -10,6 +10,7 @@ import ru.sulatskov.superapp.main.screens.general_screen.GeneralPresenter
 import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewPresenter
 import ru.sulatskov.superapp.main.screens.service_screen.ServicePresenter
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewPresenter
+import ru.sulatskov.superapp.main.screens.work_manager_screen.WorkManagerPresenter
 
 @Module
 class FragmentModule {
@@ -51,5 +52,10 @@ class FragmentModule {
     @Provides
     fun provideImageViewPresenter(): ImageViewPresenter {
         return ImageViewPresenter()
+    }
+
+    @Provides
+    fun provideWorkManagerPresenter(): WorkManagerPresenter {
+        return WorkManagerPresenter()
     }
 }

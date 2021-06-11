@@ -130,7 +130,18 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="@string/content_provider" />
+
+            <Button
+                android:id="@+id/work_manager"
+                style="@style/SuppAppButton"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/work_manager" />
         </LinearLayout>
+
     </ScrollView>
 
 </LinearLayout>

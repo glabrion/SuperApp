@@ -18,7 +18,7 @@ import javax.inject.Inject
 class ImageViewFragment : BaseFragment(), ImageViewContractInterface.View {
 
     companion object {
-        const val TAG = "ImageViewFragment"
+        const val TAG = "ImageViewFragmentTag"
         const val ACTION_REQUEST_GALLERY = 1
         const val ACTION_REQUEST_CAMERA = 2
     }

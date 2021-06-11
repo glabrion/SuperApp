@@ -12,6 +12,7 @@ import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
 import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
+import ru.sulatskov.superapp.main.screens.work_manager_screen.WorkManagerFragment
 
 @Component(modules = [ApplicationModule::class, FragmentModule::class])
 interface MainComponent {
@@ -26,4 +27,5 @@ interface MainComponent {
     fun inject(buttonFragment: ButtonFragment)
     fun inject(appBarFragment: AppBarFragment)
     fun inject(imageViewFragment: ImageViewFragment)
+    fun inject(workManagerFragment: WorkManagerFragment)
 }

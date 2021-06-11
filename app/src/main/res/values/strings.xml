@@ -57,4 +57,5 @@
     <string name="select_image_from_camera">Select image from camera</string>
     <string name="select_image_from_gallery">Select image from gallery</string>
     <string name="image_view_text">Image View</string>
+    <string name="work_manager">Work manager</string>
 </resources>
