@@ -40,4 +40,8 @@ class GeneralPresenter : BasePresenter<GeneralContractInterface.View>(),
     override fun onWorkManagerButtonClick() {
         view?.openWorkManagerScreen()
     }
+
+    override fun onRecyclerViewButtonClick() {
+        view?.openRecyclerViewScreen()
+    }
 }

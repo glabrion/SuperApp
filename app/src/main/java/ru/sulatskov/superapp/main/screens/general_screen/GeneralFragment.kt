@@ -55,6 +55,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
         binding.workManager.setOnClickListener {
             presenter.onWorkManagerButtonClick()
         }
+        binding.recyclerView.setOnClickListener {
+            presenter.onRecyclerViewButtonClick()
+        }
         return binding.root
     }
 
@@ -108,5 +111,9 @@ class GeneralFragment : BaseFragment(), GeneralContractInterface.View {
 
     override fun openWorkManagerScreen() {
         (activity as? MainActivity)?.openWorkManagerScreen()
+    }
+
+    override fun openRecyclerViewScreen() {
+        (activity as? MainActivity)?.openRecyclerViewScreen()
     }
 }

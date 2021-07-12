@@ -14,6 +14,7 @@ import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragmen
 import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
 import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
 import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewFragment
+import ru.sulatskov.superapp.main.screens.recycler_view.RecyclerViewFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
 import ru.sulatskov.superapp.main.screens.toolbar_screen.ToolbarFragment
@@ -110,6 +111,14 @@ class MainActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             replace<WorkManagerFragment>(R.id.fragment_container_view, WorkManagerFragment.TAG)
             addToBackStack(WorkManagerFragment.TAG)
+        }
+    }
+
+    fun openRecyclerViewScreen() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            replace<RecyclerViewFragment>(R.id.fragment_container_view, RecyclerViewFragment.TAG)
+            addToBackStack(RecyclerViewFragment.TAG)
         }
     }
 

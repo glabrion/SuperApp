@@ -10,6 +10,7 @@ import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactFragmen
 import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextFragment
 import ru.sulatskov.superapp.main.screens.general_screen.GeneralFragment
 import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewFragment
+import ru.sulatskov.superapp.main.screens.recycler_view.RecyclerViewFragment
 import ru.sulatskov.superapp.main.screens.service_screen.ServiceFragment
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewFragment
 import ru.sulatskov.superapp.main.screens.work_manager_screen.WorkManagerFragment
@@ -28,4 +29,5 @@ interface MainComponent {
     fun inject(appBarFragment: AppBarFragment)
     fun inject(imageViewFragment: ImageViewFragment)
     fun inject(workManagerFragment: WorkManagerFragment)
+    fun inject(recyclerViewFragment: RecyclerViewFragment)
 }

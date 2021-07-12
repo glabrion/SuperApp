@@ -15,6 +15,7 @@ interface GeneralContractInterface {
         fun openToolbarScreen()
         fun openImageViewScreen()
         fun openWorkManagerScreen()
+        fun openRecyclerViewScreen()
     }
 
     interface Presenter : BasePresenterInterface<View> {
@@ -27,5 +28,6 @@ interface GeneralContractInterface {
         fun onToolbarButtonClick()
         fun onImageViewButtonClick()
         fun onWorkManagerButtonClick()
+        fun onRecyclerViewButtonClick()
     }
 }

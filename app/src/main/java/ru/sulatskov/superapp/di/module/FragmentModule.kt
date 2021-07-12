@@ -8,6 +8,7 @@ import ru.sulatskov.superapp.main.screens.content_provider_screen.ContactPresent
 import ru.sulatskov.superapp.main.screens.edit_text_screen.EditTextPresenter
 import ru.sulatskov.superapp.main.screens.general_screen.GeneralPresenter
 import ru.sulatskov.superapp.main.screens.image_view_screen.ImageViewPresenter
+import ru.sulatskov.superapp.main.screens.recycler_view.RecyclerViewPresenter
 import ru.sulatskov.superapp.main.screens.service_screen.ServicePresenter
 import ru.sulatskov.superapp.main.screens.text_view_screen.TextViewPresenter
 import ru.sulatskov.superapp.main.screens.work_manager_screen.WorkManagerPresenter
@@ -57,5 +58,10 @@ class FragmentModule {
     @Provides
     fun provideWorkManagerPresenter(): WorkManagerPresenter {
         return WorkManagerPresenter()
+    }
+
+    @Provides
+    fun provideRecyclerViewPresenter(): RecyclerViewPresenter {
+        return RecyclerViewPresenter()
     }
 }
