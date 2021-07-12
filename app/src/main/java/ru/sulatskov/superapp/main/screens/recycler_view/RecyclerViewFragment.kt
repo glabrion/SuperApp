@@ -21,7 +21,7 @@ class RecyclerViewFragment : BaseFragment(), RecyclerViewContractInterface.View,
     @Inject
     lateinit var presenter: RecyclerViewPresenter
     private var fragmentRecyclerViewBinding: FragmentRecyclerViewBinding? = null
-    private var photosAdapter = PhotosAdapter(this)
+    private var adapter = PhotosAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,8 +35,14 @@ class RecyclerViewFragment : BaseFragment(), RecyclerViewContractInterface.View,
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentRecyclerViewBinding?.list?.adapter = photosAdapter
+        fragmentRecyclerViewBinding?.list?.adapter = adapter
         fragmentRecyclerViewBinding?.list?.layoutManager = LinearLayoutManager(context)
+        fragmentRecyclerViewBinding?.list?.addItemDecoration(HeaderItemDecoration(
+            parent = fragmentRecyclerViewBinding?.list!!,
+            shouldFadeOutHeader = false
+        ) {
+            adapter.isHeader(it)
+        })
     }
 
     override fun injectDependency() {
@@ -54,14 +60,14 @@ class RecyclerViewFragment : BaseFragment(), RecyclerViewContractInterface.View,
 
         fragmentRecyclerViewBinding?.toolbar?.title = getString(R.string.recycler_view)
     }
-    
+
     override fun onDestroyView() {
         fragmentRecyclerViewBinding = null
         super.onDestroyView()
     }
 
-    override fun showList(data: MutableList<String>) {
-        photosAdapter.setData(data)
+    override fun showList(data: MutableList<Pair<Any, Type>>) {
+        adapter.setData(data)
     }
 
     override fun onCityClick(name: String?) {
