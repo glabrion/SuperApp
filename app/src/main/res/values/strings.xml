@@ -59,4 +59,5 @@
     <string name="image_view_text">Image View</string>
     <string name="work_manager">Work manager</string>
     <string name="recycler_view">RecyclerView</string>
+    <string name="start_workmanager">Start WorkManager</string>
 </resources>

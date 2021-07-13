@@ -12,5 +12,14 @@
         android:layout_height="wrap_content"
         app:navigationIcon="@drawable/ic_back" />
 
+    <Button
+        android:id="@+id/start"
+        style="@style/SuppAppButton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/start_workmanager" />
 
 </LinearLayout>

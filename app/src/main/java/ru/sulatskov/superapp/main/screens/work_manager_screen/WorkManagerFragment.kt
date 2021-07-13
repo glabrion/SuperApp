@@ -37,8 +37,9 @@ class WorkManagerFragment : BaseFragment(), WorkManagerContractInterface.View {
 
     override fun onResume() {
         super.onResume()
-        val workRequest = OneTimeWorkRequest.Builder(SuperAppWork::class.java).build()
-        context?.let { WorkManager.getInstance(it).enqueue(workRequest) }
+        fragmentWorkManagerBinding?.start?.setOnClickListener {
+            presenter.onStartClick()
+        }
     }
 
     override fun injectDependency() {
@@ -55,5 +56,10 @@ class WorkManagerFragment : BaseFragment(), WorkManagerContractInterface.View {
         }
 
         fragmentWorkManagerBinding?.toolbar?.title = getString(R.string.work_manager)
+    }
+
+    override fun startWorkManager() {
+        val workRequest = OneTimeWorkRequest.Builder(SuperAppWork::class.java).build()
+        context?.let { WorkManager.getInstance(it).enqueue(workRequest) }
     }
 }
