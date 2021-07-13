@@ -21,7 +21,7 @@ class RecyclerViewFragment : BaseFragment(), RecyclerViewContractInterface.View,
     @Inject
     lateinit var presenter: RecyclerViewPresenter
     private var fragmentRecyclerViewBinding: FragmentRecyclerViewBinding? = null
-    private var adapter = PhotosAdapter(this)
+    private var adapter = CountryAndCityAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

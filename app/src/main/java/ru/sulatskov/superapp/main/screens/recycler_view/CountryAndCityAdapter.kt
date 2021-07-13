@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.sulatskov.superapp.databinding.ItemCityBinding
 import ru.sulatskov.superapp.databinding.ItemCountryBinding
 
-class PhotosAdapter(private val photoListClickListener: CityClickListener) :
+class CountryAndCityAdapter(private val clickListener: CityClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(),
     StickHeaderItemDecoration.StickyHeaderInterface {
 
@@ -39,8 +39,8 @@ class PhotosAdapter(private val photoListClickListener: CityClickListener) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is CityViewHolder -> holder.bind(list[position], photoListClickListener)
-            is CountryViewHolder -> holder.bind(list[position], photoListClickListener)
+            is CityViewHolder -> holder.bind(list[position], clickListener)
+            is CountryViewHolder -> holder.bind(list[position], clickListener)
         }
     }
 
