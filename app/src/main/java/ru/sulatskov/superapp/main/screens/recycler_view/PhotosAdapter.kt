@@ -7,7 +7,8 @@ import ru.sulatskov.superapp.databinding.ItemCityBinding
 import ru.sulatskov.superapp.databinding.ItemCountryBinding
 
 class PhotosAdapter(private val photoListClickListener: CityClickListener) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    RecyclerView.Adapter<RecyclerView.ViewHolder>(),
+    StickHeaderItemDecoration.StickyHeaderInterface {
 
     private val list = mutableListOf<Pair<Any, Type>>()
 
@@ -51,7 +52,19 @@ class PhotosAdapter(private val photoListClickListener: CityClickListener) :
         notifyDataSetChanged()
     }
 
-    fun isHeader(position: Int) = getItemViewType(position) == TYPE_COUNTRY
+    override fun getHeaderPositionForItem(itemPosition: Int): Int {
+        for (i in itemPosition downTo 0) {
+            if (getItemViewType(i) == TYPE_COUNTRY) {
+                return i
+            }
+        }
+        return RecyclerView.NO_POSITION
+    }
+
+    override fun isHeader(itemPosition: Int) = getItemViewType(itemPosition) == TYPE_COUNTRY
+
+    override fun onClickHeader(childAdapterPosition: Int) {
+    }
 
     class CityViewHolder(private val binding: ItemCityBinding) :
         RecyclerView.ViewHolder(binding.root) {

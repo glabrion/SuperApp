@@ -37,12 +37,14 @@ class RecyclerViewFragment : BaseFragment(), RecyclerViewContractInterface.View,
         super.onViewCreated(view, savedInstanceState)
         fragmentRecyclerViewBinding?.list?.adapter = adapter
         fragmentRecyclerViewBinding?.list?.layoutManager = LinearLayoutManager(context)
-        fragmentRecyclerViewBinding?.list?.addItemDecoration(HeaderItemDecoration(
-            parent = fragmentRecyclerViewBinding?.list!!,
-            shouldFadeOutHeader = false
-        ) {
-            adapter.isHeader(it)
-        })
+        fragmentRecyclerViewBinding?.list.let {
+            it?.addItemDecoration(
+                StickHeaderItemDecoration(
+                    list = it,
+                    listener = adapter
+                )
+            )
+        }
     }
 
     override fun injectDependency() {
