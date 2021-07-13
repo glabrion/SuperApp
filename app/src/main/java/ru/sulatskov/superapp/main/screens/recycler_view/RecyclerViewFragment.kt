@@ -68,7 +68,7 @@ class RecyclerViewFragment : BaseFragment(), RecyclerViewContractInterface.View,
         super.onDestroyView()
     }
 
-    override fun showList(data: MutableList<Any>) {
+    override fun showList(data: MutableList<Pair<Any, Type>>) {
         adapter.setData(data)
     }
 

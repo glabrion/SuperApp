@@ -10,7 +10,7 @@ class CountryAndCityAdapter(private val clickListener: CityClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>(),
     StickHeaderItemDecoration.StickyHeaderInterface {
 
-    private val list = mutableListOf<Any>()
+    private val list = mutableListOf<Pair<Any, Type>>()
 
     companion object {
         const val TYPE_CITY = 1
@@ -31,10 +31,9 @@ class CountryAndCityAdapter(private val clickListener: CityClickListener) :
 
 
     override fun getItemViewType(position: Int): Int {
-        return when (list[position]) {
-            is CityDto -> TYPE_CITY
-            is String -> TYPE_COUNTRY
-            else -> -1
+        return when (list[position].second) {
+            City -> TYPE_CITY
+            Country -> TYPE_COUNTRY
         }
     }
 
@@ -47,7 +46,7 @@ class CountryAndCityAdapter(private val clickListener: CityClickListener) :
 
     override fun getItemCount() = list.size
 
-    fun setData(items: List<Any>) {
+    fun setData(items: List<Pair<Any, Type>>) {
         list.clear()
         list.addAll(items)
         notifyDataSetChanged()
@@ -70,11 +69,11 @@ class CountryAndCityAdapter(private val clickListener: CityClickListener) :
     class CityViewHolder(private val binding: ItemCityBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: Any, cityClickListener: CityClickListener) {
-            binding.name.text = (data as? CityDto)?.name
-            binding.population.text = (data as? CityDto)?.population.toString()
+        fun bind(data: Pair<Any, Type>, cityClickListener: CityClickListener) {
+            binding.name.text = (data.first as? CityDto)?.name
+            binding.population.text = (data.first as? CityDto)?.population.toString()
             itemView.setOnClickListener {
-                cityClickListener.onCityClick((data as? CityDto)?.name)
+                cityClickListener.onCityClick((data.first as? CityDto)?.name)
             }
         }
     }
@@ -82,10 +81,10 @@ class CountryAndCityAdapter(private val clickListener: CityClickListener) :
     class CountryViewHolder(private val binding: ItemCountryBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(data: Any, cityClickListener: CityClickListener) {
-            binding.name.text = data as? String
+        fun bind(data: Pair<Any, Type>, cityClickListener: CityClickListener) {
+            binding.name.text = data.first as? String
             itemView.setOnClickListener {
-                cityClickListener.onCityClick((data as? CityDto)?.name)
+                cityClickListener.onCityClick((data.first as? CityDto)?.name)
             }
         }
     }
